@@ -1,19 +1,26 @@
 package atm;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.*;
+import org.junit.Test;
 
-class ATMTest {
-    private ATM atm;
 
-    @BeforeEach
-    public void setUp() {
-        atm = new ATM();
-    }
+public class ATMTest {
 
     @Test
     public void testAttributes() {
+        ATM atm = new ATM();
         assertEquals(atm.first.getNOMINAL(), 20);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void processInvalid() {
+        ATM atm = new ATM();
+        atm.process(126);
+    }
+
+    @Test
+    public void processCorrect() {
+        ATM atm = new ATM();
+        atm.process(125);
     }
 }

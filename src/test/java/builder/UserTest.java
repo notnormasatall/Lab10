@@ -1,20 +1,13 @@
 package builder;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-class UserTest {
-    User user;
-
-    @BeforeEach
-    void setUp() {
-        user = User.builder().firstName("Taras").occupation("Teacher").build();
-    }
+public class UserTest {
 
     @Test
-    void testUser() {
+    public void testUser() {
+        User user = User.builder().firstName("Taras").occupation("Teacher").build();
         assertEquals(user.toString(), "User(firstName=Taras, secondName=null, age=0, occupations=[Teacher])");
     }
 }
